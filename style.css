@@ -1,0 +1,58 @@
+.calculatorGrid{
+    background-color: grey;
+    width: 60%;
+    height: 80vh;;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: auto;
+    display: grid;
+    gap: 2%;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+#screen{
+    background-color: white;
+    grid-area: 1 / 1/ span 1 / span 1;
+    border-radius: 5px;
+    text-align: right;
+    margin: 2%;
+    
+}
+
+#buttons{
+    grid-area: 2 / 1 / span 2 / span 1;
+    display: grid;
+    gap: 2%;
+    margin: 2%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    
+}
+
+/* Set up button placement */
+
+#clear{grid-area: 1 / 1/ span 1 / span 2;}
+#delete{grid-area: 1 / 3 / span 1 / span 2;}
+
+#button1{grid-area: 2 / 1 / span 1 / span 1;}
+#button2{grid-area: 2 / 2 / span 1 / span 1;}
+#button3{grid-area: 2 / 3 / span 1 / span 1;}
+
+#button4{grid-area: 3 / 1 / span 1 / span 1;}
+#button5{grid-area: 3 / 2 / span 1 / span 1;}
+#button6{grid-area: 3 / 3 / span 1 / span 1;}
+
+#button7{grid-area: 4 / 1 / span 1 / span 1;}
+#button8{grid-area: 4 / 2 / span 1 / span 1;}
+#button9{grid-area: 4 / 3 / span 1 / span 1;}
+
+#button0{grid-area: 5 / 2 / span 1 / span 1;}
+#buttonDecimal{grid-area: 5 / 1 / span 1 / span 1;}
+#buttonEquals{grid-area: 5 / 3 / span 1 / span 1;}
+
+@media (max-width: 200px){
+    .calculatorGrid{
+        width:90%;
+    }
+}
