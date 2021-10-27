@@ -1,6 +1,6 @@
 .calculatorGrid{
     background-color: grey;
-    width: 30%;
+    width: 20%;
     height: 80vh;;
     border: 1px solid black;
     border-radius: 10px;
@@ -71,8 +71,8 @@ background-color: salmon;}
 
 /* Media query for small screens */
 
-@media (max-width: 330px){
+@media (max-width: 300px){
     .calculatorGrid{
-        width:90%;
+        width:70%;
     }
 }

@@ -8,9 +8,6 @@ const multiply = (a, b) => {return a*b};
 
 const divide = (a, b) => {return a/b};
 
-
-
-
 //variables and initialisation
 
 let display = document.getElementById("currentDisplay");
@@ -18,42 +15,55 @@ let displayValue = 0;
 const numberArray = [];
 let operator = "";
 let answer = 0;
+let isfloat = false;
 
 // functions to populate display with number pressed
 //store value as variable - displayValue
 function changeDisplay(value) {
+    if (value === '.') {
+
+        //cant get decimals working if displayvalue is not 0
+        isfloat = true;
+        displayValue = parseFloat(displayValue + ".");     
+        display.innerText = displayValue
+        // display.innerText = parseFloat(displayValue + ".");
+    }
     if (displayValue === 0) {
         display.innerText = value;
         displayValue += value;
     }
     else{
-        displayValue = parseInt(displayValue + "" + value);
-        // displayValue = answer;
+        displayValue = parseFloat(displayValue + "" + value);        
         display.innerText = displayValue}
     }
 
-
 //function to assign value to operator
 function operation(val){
-    //if there is already a number in the array[0], just assign operator
-    if (numberArray[0] > 0 || numberArray[0] < 0) {console.log(answer);}
-    //otherwise make the displayValue array[0]
-    else{numberArray[0] = displayValue; }
-    //assign operator value
     switch (val) {
         case "+":
         operator = "+";
         break;
+
         case "-":
         operator = "-";
         break;
+
         case "x":
         operator = "x";
         break;
+
         case "/":
         operator = "/";
         break;
     }
+    //if there is already a number in the array[0]
+    //total it with whatever operator selected
+    if (numberArray[0] > 0 || numberArray[0] < 0) 
+    {   
+        equals()}
+    //otherwise make the displayValue array[0]
+    else{numberArray[0] = displayValue; }
+    //assign operator value
     //reset display value
     displayValue = 0;
 }
@@ -68,6 +78,7 @@ switch (operator) {
         display.innerText = answer;
         numberArray.splice(0, numberArray.length)
         numberArray[0] = answer;
+        
         break;
     case "-":
         numberArray[1] = displayValue;
@@ -75,13 +86,21 @@ switch (operator) {
         display.innerText = answer;
         numberArray.splice(0, numberArray.length)
         numberArray[0] = answer;
+        
         break;
-    case "x":
+    case "x":        
         numberArray[1] = displayValue;
         answer = numberArray.reduce(multiply);
+        // if (isfloat) {
+        //     display.innerText = answer.toFixed(2);
+        // }
+        // else{display.innerText = answer;}
         display.innerText = answer;
         numberArray.splice(0, numberArray.length)
         numberArray[0] = answer;
+        console.log(numberArray)
+        
+        
         break;
     case "/":
         if (displayValue === 0) {
@@ -91,7 +110,11 @@ switch (operator) {
         else{
             numberArray[1] = displayValue;
             answer = numberArray.reduce(divide);
-            display.innerText = answer;
+            // if (isfloat) {
+            //     display.innerText = answer.toFixed(2);
+            // }
+            // else{display.innerText = answer;}
+            display.innerText = answer.toFixed(2)
             numberArray.splice(0, numberArray.length)
             numberArray[0] = answer;
             break;
@@ -101,7 +124,7 @@ switch (operator) {
         break;
     }
     displayValue = 0;
-    console.log(numberArray)
+    
 }
 
 //clear function
@@ -110,5 +133,6 @@ function clear(){
 numberArray.splice(0, numberArray.length)
     displayValue = 0;
     display.innerText = 0;
-    console.log(numberArray)
+    isfloat = false;
+    console.log(numberArray);
 }
