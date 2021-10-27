@@ -9,58 +9,46 @@ const multiply = (a, b) => {return a*b};
 const divide = (a, b) => {return a/b};
 
 //variables and initialisation
+let display = document.getElementById("currentDisplay");
+let displayValue = 0;
+let operator = "";
+const numberArray = [];
 
+//push # or . button - populate the display
 
-//push # button
+function changeDisplay(value) {
+    
+    if (displayValue === 0) {
+        display.innerText = value;
+        displayValue = value;
+    }
+    else{
+        if (value === ".") {
+            preDecimal = display.innerText;
+            displayValue = preDecimal + value;
+            display.innerText = parseFloat(displayValue);
+        }
+        else{
+            displayValue = parseFloat(displayValue + "" + value);        
+            display.innerText = displayValue
+        }
+        }
+}
 
-//push . button
 
 //push an operator
 
-//push =
-
-//push delete
-
-//push clear
-
-
-
-
-
-
-
-
-//old code, commenting out and taking what I can use
-/*
-let display = document.getElementById("currentDisplay");
-let displayValue = 0;
-const numberArray = [];
-let operator = "";
-let answer = 0;
-let isfloat = false;
-
-// functions to populate display with number pressed
-//store value as variable - displayValue
-function changeDisplay(value) {
-    if (value === '.') {
-
-        //cant get decimals working if displayvalue is not 0
-        isfloat = true;
-        displayValue = parseFloat(displayValue + ".");     
-        display.innerText = displayValue
-        // display.innerText = parseFloat(displayValue + ".");
-    }
-    if (displayValue === 0) {
-        display.innerText = value;
-        displayValue += value;
-    }
-    else{
-        displayValue = parseFloat(displayValue + "" + value);        
-        display.innerText = displayValue}
-    }
-
-//function to assign value to operator
 function operation(val){
+    //if there IS a stored value, run the equals function ---before setting operator again!
+    if (numberArray[0] > 0 || numberArray[0] < 0) {
+        
+        equals();
+    }
+    //if there is no stored value, value on screen is array[0]
+    else{
+        numberArray[0] = parseFloat(displayValue)
+    }
+    //set the operator
     switch (val) {
         case "+":
         operator = "+";
@@ -78,84 +66,64 @@ function operation(val){
         operator = "/";
         break;
     }
-    //if there is already a number in the array[0]
-    //total it with whatever operator selected
-    if (numberArray[0] > 0 || numberArray[0] < 0) 
-    {   
-        equals()}
-    //otherwise make the displayValue array[0]
-    else{numberArray[0] = displayValue; }
-    //assign operator value
-    //reset display value
     displayValue = 0;
 }
 
-//function that runs when equals is pressed
-function equals(){
-    //different case depending on operator
-switch (operator) {
-    case "+":
-        numberArray[1] = displayValue;
-        answer = numberArray.reduce(add);
-        display.innerText = answer;
-        numberArray.splice(0, numberArray.length)
-        numberArray[0] = answer;
-        
-        break;
-    case "-":
-        numberArray[1] = displayValue;
-        answer = numberArray.reduce(subtract);
-        display.innerText = answer;
-        numberArray.splice(0, numberArray.length)
-        numberArray[0] = answer;
-        
-        break;
-    case "x":        
-        numberArray[1] = displayValue;
-        answer = numberArray.reduce(multiply);
-        // if (isfloat) {
-        //     display.innerText = answer.toFixed(2);
-        // }
-        // else{display.innerText = answer;}
-        display.innerText = answer;
-        numberArray.splice(0, numberArray.length)
-        numberArray[0] = answer;
-        console.log(numberArray)
-        
-        
-        break;
-    case "/":
-        if (displayValue === 0) {
-            alert("You can't divide by zero");
-            break;
-            }
-        else{
-            numberArray[1] = displayValue;
-            answer = numberArray.reduce(divide);
-            // if (isfloat) {
-            //     display.innerText = answer.toFixed(2);
-            // }
-            // else{display.innerText = answer;}
-            display.innerText = answer.toFixed(2)
+//push =
+function equals()
+{
+    numberArray[1] = parseFloat(displayValue);
+    switch (operator) {
+        case "+":
+            displayValue = numberArray.reduce(add);
+            display.innerText = displayValue;
             numberArray.splice(0, numberArray.length)
-            numberArray[0] = answer;
+            numberArray[0] = displayValue;            
             break;
-            }
-    default:
-        alert("You have done something wrong")
-        break;
-    }
-    displayValue = 0;
-    
+        case "-":
+            displayValue = numberArray.reduce(subtract);
+            display.innerText = displayValue;
+            numberArray.splice(0, numberArray.length)
+            numberArray[0] = displayValue;
+            break;
+        case "x":        
+            displayValue = numberArray.reduce(multiply);
+            display.innerText = displayValue;
+            numberArray.splice(0, numberArray.length)
+            numberArray[0] = displayValue;
+            break;
+        case "/":
+            if (numberArray[1]=== 0) {
+                alert("You can't divide by zero");
+                break;
+                }
+            else{
+                displayValue = numberArray.reduce(divide);
+                display.innerText = displayValue;
+                numberArray.splice(0, numberArray.length)
+                numberArray[0] = displayValue;
+                break;
+                }
+        default:
+            alert("You have done something wrong")
+            break;
+        }
+         
 }
+//push delete
 
-//clear function
+//push clear
+
 document.getElementById("clear").addEventListener("click", clear);
 function clear(){
 numberArray.splice(0, numberArray.length)
     displayValue = 0;
     display.innerText = 0;
-    isfloat = false;
-    console.log(numberArray);
+   console.log(numberArray);
 }
-*/
+
+
+
+//getting strange results when
+// pushing equals and then adding more operators on the value
+//eg 0.5 x 5 = 2.5, pressing + makes answer 6.25

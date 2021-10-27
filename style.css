@@ -1,6 +1,6 @@
 .calculatorGrid{
     background-color: grey;
-    width: 20%;
+    width: 30%;
     height: 80vh;;
     border: 1px solid black;
     border-radius: 10px;
@@ -9,6 +9,7 @@
     gap: 2%;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
+    
 }
 
 #screen{
@@ -18,6 +19,7 @@
     text-align: right;
     margin: 2%;
     font-size: 1.5em;
+
     
 }
 
@@ -68,6 +70,12 @@ background-color: salmon;}
 #buttonMinus{background-color: rgb(202, 213, 235);}
 #buttonMultiply{background-color: rgb(202, 213, 235);}
 #buttonDivide{background-color: rgb(202, 213, 235);}
+
+#currentDisplay{
+    word-wrap: break-word;
+    word-break: break-all;
+    
+}
 
 /* Media query for small screens */
 
