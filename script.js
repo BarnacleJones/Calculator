@@ -10,6 +10,28 @@ const divide = (a, b) => {return a/b};
 
 //variables and initialisation
 
+
+//push # button
+
+//push . button
+
+//push an operator
+
+//push =
+
+//push delete
+
+//push clear
+
+
+
+
+
+
+
+
+//old code, commenting out and taking what I can use
+/*
 let display = document.getElementById("currentDisplay");
 let displayValue = 0;
 const numberArray = [];
@@ -136,3 +158,4 @@ numberArray.splice(0, numberArray.length)
     isfloat = false;
     console.log(numberArray);
 }
+*/
