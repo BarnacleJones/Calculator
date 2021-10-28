@@ -24,7 +24,7 @@ body{
     border-radius: 5px;
     text-align: right;
     margin: 2%;
-    font-size: 1.5em;    
+    /* font-size: 1.5e;     */
 }
 
 #buttons{
@@ -40,7 +40,7 @@ body{
     border-style: inherit;
     border-radius: 20px;
     font-family: 'Prompt', sans-serif;  
-    font-size: 1.5em; 
+    /* font-size: 1.5em;  */
 }
 
 
@@ -105,8 +105,8 @@ margin: 0 auto;
 }
 
 @keyframes logoGrow{
-    from {height: 50px;}
-    to {height: 70px;}
+    from {height: 30px;}
+    to {height: 50px;}
 }
 .link:hover{
     animation-name: logoGrow;
