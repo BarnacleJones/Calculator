@@ -1,6 +1,7 @@
 body{
     background-color:rgba(41, 128, 78, 0.747);
     font-family: 'Prompt', sans-serif;    
+    font-size: 3em;
 }
 
 .calculatorGrid{
