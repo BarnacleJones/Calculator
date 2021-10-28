@@ -38,9 +38,9 @@ body{
 
 #buttons > button{
     border-style: inherit;
-    border-radius: 10px;
+    border-radius: 20px;
     font-family: 'Prompt', sans-serif;  
-    font-size: 3em; 
+    font-size: 5em; 
 }
 
 
