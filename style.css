@@ -1,26 +1,30 @@
+body{
+    background-color:rgba(41, 128, 78, 0.747);
+    font-family: 'Prompt', sans-serif;
+    
+}
+
 .calculatorGrid{
-    background-color: grey;
+    background-color: rgb(134, 103, 73);
     width: 30%;
-    height: 80vh;;
-    border: 1px solid black;
+    height: 80vh;    
+    border: 1px black;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);    
     border-radius: 10px;
     margin: auto;
     display: grid;
     gap: 2%;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    
+    grid-template-rows: repeat(3, 1fr);    
 }
 
 #screen{
-    background-color: white;
+    background-color: rgba(232, 245, 220, 0.733);
     grid-area: 1 / 1/ span 1 / span 1;
     border-radius: 5px;
     text-align: right;
     margin: 2%;
-    font-size: 1.5em;
-
-    
+    font-size: 1.5em;    
 }
 
 #buttons{
@@ -29,12 +33,17 @@
     gap: 2%;
     margin: 2%;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);      
+    grid-template-rows: repeat(5, 1fr);   
+    
+
+      
+    
 }
 
 #buttons > button{
     border-style: inherit;
     border-radius: 10px;
+    font-family: 'Prompt', sans-serif;   
 }
 
 
@@ -46,35 +55,66 @@
 /* Set up button placement */
 
 #clear{grid-area: 1 / 1/ span 1 / span 2;
-background-color: rgb(141, 231, 141);}
+background-color: rgba(63, 151, 101, 0.856)}
 #delete{grid-area: 1 / 3 / span 1 / span 2;
-background-color: salmon;}
+background-color: rgb(214, 143, 135);}
 
-#button1{grid-area: 2 / 1 / span 1 / span 1;}
-#button2{grid-area: 2 / 2 / span 1 / span 1;}
-#button3{grid-area: 2 / 3 / span 1 / span 1;}
+#button1{grid-area: 2 / 1 / span 1 / span 1;
+    background-color: rgb(212, 176, 129);}
+#button2{grid-area: 2 / 2 / span 1 / span 1;
+    background-color: rgb(212, 176, 129);}
+#button3{grid-area: 2 / 3 / span 1 / span 1;
+    background-color: rgb(212, 176, 129);}
 
-#button4{grid-area: 3 / 1 / span 1 / span 1;}
-#button5{grid-area: 3 / 2 / span 1 / span 1;}
-#button6{grid-area: 3 / 3 / span 1 / span 1;}
+#button4{grid-area: 3 / 1 / span 1 / span 1;
+    background-color: rgb(212, 176, 129);}
+#button5{grid-area: 3 / 2 / span 1 / span 1;
+    background-color: rgb(212, 176, 129);}
+#button6{grid-area: 3 / 3 / span 1 / span 1;
+    background-color: rgb(212, 176, 129);}
 
-#button7{grid-area: 4 / 1 / span 1 / span 1;}
-#button8{grid-area: 4 / 2 / span 1 / span 1;}
-#button9{grid-area: 4 / 3 / span 1 / span 1;}
+#button7{grid-area: 4 / 1 / span 1 / span 1;
+    background-color: rgb(212, 176, 129);}
+#button8{grid-area: 4 / 2 / span 1 / span 1;
+    background-color: rgb(212, 176, 129);}
+#button9{grid-area: 4 / 3 / span 1 / span 1;
+    background-color: rgb(212, 176, 129);}
 
-#button0{grid-area: 5 / 2 / span 1 / span 1;}
-#buttonDecimal{grid-area: 5 / 1 / span 1 / span 1;}
-#buttonEquals{grid-area: 5 / 3 / span 1 / span 1;}
+#button0{grid-area: 5 / 2 / span 1 / span 1;
+    background-color: rgb(212, 176, 129);}
+#buttonDecimal{grid-area: 5 / 1 / span 1 / span 1;
+    background-color: rgb(212, 176, 129);}
+#buttonEquals{grid-area: 5 / 3 / span 1 / span 1;
+    background-color: rgb(212, 176, 129);}
 
-#buttonPlus{background-color: rgb(202, 213, 235);}
-#buttonMinus{background-color: rgb(202, 213, 235);}
-#buttonMultiply{background-color: rgb(202, 213, 235);}
-#buttonDivide{background-color: rgb(202, 213, 235);}
+#buttonPlus{background-color: rgb(202, 213, 235);
+    background-color: rgb(212, 176, 129);}
+#buttonMinus{background-color: rgb(202, 213, 235);
+    background-color: rgb(212, 176, 129);}
+#buttonMultiply{background-color: rgb(202, 213, 235);
+    background-color: rgb(212, 176, 129);}
+#buttonDivide{background-color: rgb(202, 213, 235);
+    background-color: rgb(212, 176, 129);}
 
 #currentDisplay{
     word-wrap: break-word;
     word-break: break-all;
     
+}
+
+footer{
+width:3%;
+margin: 0 auto;
+}
+
+@keyframes logoGrow{
+    from {height: 20px;}
+    to {height: 30px;}
+}
+.link:hover{
+    animation-name: logoGrow;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
 }
 
 /* Media query for small screens */
@@ -83,4 +123,8 @@ background-color: salmon;}
     .calculatorGrid{
         width:70%;
     }
+    footer{
+        width:10%;
+        margin: 0 auto;
+        }
 }

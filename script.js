@@ -116,18 +116,16 @@ function equals()
         }
         displayValue = 0;        
 }
-//push delete - not really working!
+//push delete to clear last character
 document.getElementById("delete").addEventListener("click", clearLast);
 
 function clearLast()
 {
  let valueArray = [...display.innerText]
  valueArray.pop();
-
- newdisplay = valueArray.toString();
- newdisplay.replace(',', '');
+ let newdisplay = valueArray.join('');
  display.innerText = newdisplay;
- 
+ displayValue = newdisplay; 
 }
 
 //push clear
