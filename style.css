@@ -1,11 +1,11 @@
 body{
-    background-color:rgba(41, 128, 78, 0.747);
+    background-color:#6A753B;
     font-family: 'Prompt', sans-serif;    
     font-size: 1.5em;
 }
 
 .calculatorGrid{
-    background-color: rgb(139, 115, 91);
+    background-color: #916C4D;
     width: 30%;
     height: 90vh;    
     border: 1px black;
